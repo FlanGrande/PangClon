@@ -18,10 +18,11 @@ func destroy():
 	queue_free()
 	var enemy_half_instance_right = EnemyScene.instance()
 	enemy_half_instance_right.position = Vector2(position.x + 32, position.y)
+	enemy_half_instance_right.linear_velocity.x = sign(speed_x) * speed_x
 	
 	var enemy_half_instance_left = EnemyScene.instance()
 	enemy_half_instance_left.position = Vector2(position.x - 32, position.y)
-	enemy_half_instance_left.linear_velocity.x = -100
+	enemy_half_instance_left.linear_velocity.x = -sign(speed_x) * speed_x
 	
 	GameWorldNode.add_child(enemy_half_instance_right)
 	GameWorldNode.add_child(enemy_half_instance_left)

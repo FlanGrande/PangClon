@@ -29,6 +29,9 @@ func _on_Area2D_body_entered(body):
 		destroy()
 		body.destroy()
 	
+	if(body.is_in_group(\"enemies\")):
+		add_collision_exception_with(body)
+	
 	pass
 "
 
@@ -36,13 +39,13 @@ func _on_Area2D_body_entered(body):
 radius = 14.0
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 18.0
+radius = 16.0
 
 [node name="EnemyQuarter" type="RigidBody2D" groups=[
 "enemies",
 ]]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 physics_material_override = SubResource( 1 )
 gravity_scale = 0.0
 linear_velocity = Vector2( 100, 0 )
